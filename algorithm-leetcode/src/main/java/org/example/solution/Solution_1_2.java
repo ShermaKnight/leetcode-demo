@@ -7,7 +7,6 @@ import java.util.HashMap;
 
 /**
  * https://leetcode-cn.com/problems/two-sum/
- * 两数之和
  */
 @SuppressWarnings("all")
 public class Solution_1_2 {
