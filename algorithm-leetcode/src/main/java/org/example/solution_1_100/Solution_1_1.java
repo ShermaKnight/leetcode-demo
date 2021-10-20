@@ -1,4 +1,4 @@
-package org.example.solution;
+package org.example.solution_1_100;
 
 import com.google.common.base.Preconditions;
 import org.example.util.CheckUtil;
