@@ -34,9 +34,21 @@ public class Solution_17_1 {
             return cache.get(Integer.valueOf(String.valueOf(digits.charAt(0))));
         }
         List<String> list = new ArrayList<>();
-        for (int i = 0; i < digits.length(); i++) {
-            
-        }
+        backtrack(list, digits, 0, new StringBuffer());
         return list;
+    }
+
+    private static void backtrack(List<String> combinations, String digits, int index, StringBuffer combination) {
+        if (index == digits.length()) {
+            combinations.add(combination.toString());
+        } else {
+            char digit = digits.charAt(index);
+            List<String> letters = cache.get(Integer.valueOf(String.valueOf(digit)));
+            for (String letter : letters) {
+                combination.append(letter);
+                backtrack(combinations, digits, index + 1, combination);
+                combination.deleteCharAt(index);
+            }
+        }
     }
 }
