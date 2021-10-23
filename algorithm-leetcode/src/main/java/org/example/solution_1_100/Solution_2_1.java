@@ -1,5 +1,7 @@
 package org.example.solution_1_100;
 
+import org.example.base.ListNode;
+
 /**
  * https://leetcode-cn.com/problems/add-two-numbers/
  */
@@ -7,10 +9,10 @@ package org.example.solution_1_100;
 public class Solution_2_1 {
 
     public static void main(String[] args) {
-        printNodes(addTwoNumbers(buildNodes(new int[]{9, 9, 9}), buildNodes(new int[]{9, 9, 9})));
-        printNodes(addTwoNumbers(buildNodes(new int[]{9, 9}), buildNodes(new int[]{9, 9, 9})));
-        printNodes(addTwoNumbers(buildNodes(new int[]{9}), buildNodes(new int[]{9, 9, 9})));
-        printNodes(addTwoNumbers(buildNodes(new int[]{9, 9, 9, 1, 2}), buildNodes(new int[]{9, 9, 9})));
+        ListNode.printNodes(addTwoNumbers(ListNode.buildNodes(new int[]{9, 9, 9}), ListNode.buildNodes(new int[]{9, 9, 9})));
+        ListNode.printNodes(addTwoNumbers(ListNode.buildNodes(new int[]{9, 9}), ListNode.buildNodes(new int[]{9, 9, 9})));
+        ListNode.printNodes(addTwoNumbers(ListNode.buildNodes(new int[]{9}), ListNode.buildNodes(new int[]{9, 9, 9})));
+        ListNode.printNodes(addTwoNumbers(ListNode.buildNodes(new int[]{9, 9, 9, 1, 2}), ListNode.buildNodes(new int[]{9, 9, 9})));
     }
 
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
@@ -61,51 +63,5 @@ public class Solution_2_1 {
             x.next = new ListNode(1);
         }
         return r;
-    }
-
-    public static ListNode buildNodes(int[] numbers) {
-        ListNode listNode = null;
-        for (int i = 0; i < numbers.length; i++) {
-            if (listNode == null) {
-                listNode = new ListNode(numbers[i]);
-            } else {
-                ListNode x = listNode;
-                while (x.next != null) {
-                    x = x.next;
-                }
-                x.next = new ListNode(numbers[i]);
-            }
-        }
-        return listNode;
-    }
-
-    public static void printNodes(ListNode listNode) {
-        if (listNode == null) {
-            return;
-        }
-        ListNode r = listNode;
-        while (r != null) {
-            System.out.print(r.val + " ");
-            r = r.next;
-        }
-        System.out.println();
-    }
-
-    private static class ListNode {
-
-        int val;
-        ListNode next;
-
-        public ListNode() {
-        }
-
-        public ListNode(int val) {
-            this.val = val;
-        }
-
-        public ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
     }
 }
